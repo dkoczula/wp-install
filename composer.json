@@ -1,0 +1,59 @@
+{
+    "name": "eatnet/wp-install",
+    "type": "project",
+    "description": "Custom WordPress install through Composer and WP-CLI",
+    "keywords": [
+        "WordPress",
+        "bootstrap",
+        "Composer"
+    ],
+    "homepage": "https://github.com/dkoczula/wp-install",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Koczuła",
+            "email": "dkoczula@gmail.com",
+            "homepage": "https://eatnet.pl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": "~7.1",
+        "johnpbloch/wordpress": ">=5.2"
+    },
+    "extra": {
+        "wordpress-install-dir": "wp",
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "installer-paths": {
+            "wp/wp-content/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ],
+            "wp/wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "wp/wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "./install/validate-env-variables.sh"
+        ],
+        "post-create-project-cmd": [
+            "./install/install.sh"
+        ]
+    }
+}
