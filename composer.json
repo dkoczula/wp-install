@@ -1,5 +1,5 @@
 {
-    "name": "eatnet/wp-install",
+    "name": "dkoczula/wp-install",
     "type": "project",
     "description": "Custom WordPress install through Composer and WP-CLI",
     "keywords": [
